@@ -6,7 +6,7 @@ class Tokenizer(object):
         Open 'sourceFile' and gets ready to parse it.
         """
         self.sourceFileName = sourceName
-        self.fp = open(sourceName, 'r');
+        self.fp = open(sourceName, 'r')
         self.lineNumber = 0
         self.line = ''
         self.rawline = ''
