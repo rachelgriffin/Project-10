@@ -6,29 +6,20 @@ class Tokenizer(object):
         Open 'sourceFile' and gets ready to parse it.
         """
         self.sourceFileName = sourceName
-        self.fp = open(sourceName, 'r');
+        self.fp = open(sourceName, 'r')
         self.lineNumber = 0
         self.line = ''
         self.rawline = ''
         self.inComment = False
         # Initialize other varibles here
-<<<<<<< HEAD
-        self.tokenType = CONSTS.TK_NONE
-        self.token = ''
-
-=======
 
         #token info
         self.tokenType = CONSTS.TK_NONE
         self.token = '' #raw token text (string, int as string)
->>>>>>> Racheldev
     def close(self):
         self.fp.close()
 
     def getNextLine(self):
-<<<<<<< HEAD
-        pass
-=======
         """
         reads the next line from file into self.line/self.rawline
         """
@@ -41,7 +32,6 @@ class Tokenizer(object):
         #keep whitespace and just strip newline chars
         self.line = self.rawline.rstrip('\r\n')
         return True
->>>>>>> Racheldev
 
     def _eat(self):
         """
@@ -55,93 +45,6 @@ class Tokenizer(object):
         command.
         Returns True if a command was found, False at end of file.
         """
-<<<<<<< HEAD
-        while True:
-            # if the current line is empty, get a new one
-            if not self.line:
-                if not self.getNextLine():
-                    # end of file
-                    self.tokenType = CONSTS.TK_NONE
-                    self.token = ''
-                    return False
-                    
-            # if we are inside a block comment, skip until */
-            if self.inComment:
-                end = self.line.find('*/')
-                if end == -1:
-                    # skip the entire line
-                    self.line = ''
-                    continue
-                else:
-                    # end of comment on this line
-                    self.line = self.line[end+2:]
-                    self.inComment = False
-                    # loop again
-                    continue
-            # skip leading whitespace
-            while self.line and self.line[0].isspace():
-                self._eat()
-            if not self.line:
-                continue # line was only whitespace, skip
-            #line now starts at a non-whitespace character
-            if self.line .startswith('/**'):
-                # doc style block comment
-                self.inComment = True
-                self.line = self.line[3:]
-                continue
-            elif self.line .startswith('/*'):
-                # normal block comment
-                self.inComment = True
-                self.line = self.line[2:]
-                continue
-            elif self.line .startswith('//'):
-                # line comment, skip rest of line
-                self.line = ''
-                continue
-            break # got a non-comment, non-whitespace line
-        
-            
-            
-            
-    def LineNumber(self):
-        pass
-
-
-    def LineStr(self):
-        pass
-
-
-    def TokenType(self):
-        pass
-
-
-    def TokenTypeStr(self):
-        pass
-
-
-    def Keyword(self):
-        pass
-
-
-    def KeywordStr(self, keywordId=None):
-        pass
-
-
-    def Symbol(self):
-        pass
-
-
-    def Identifier(self):
-        pass
-
-
-    def IntVal(self):
-        pass
-
-
-    def StringVal(self):
-        pass
-=======
         pass
     #kelly doing
 
@@ -209,7 +112,6 @@ class Tokenizer(object):
         else:
             return self.token
 
->>>>>>> Racheldev
 
 
     def _Parse(self):
